@@ -1,0 +1,16 @@
+# Questa build and run outputs (curated results are kept in dv/results/)
+dv/sim/build/
+dv/sim/run/
+dv/sim/work/
+dv/sim/cov_html/
+*.ucdb
+*.wlf
+transcript
+*.log
+dv/sim/regression.rpt
+dv/sim/coverage_summary.txt
+dv/sim/*.out
+dv/sim/makefile.old
+obj_dir/
+*.swp
+__pycache__/

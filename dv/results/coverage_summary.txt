@@ -1,0 +1,47 @@
+QuestaSim-64 vcover 2021.2_1 Coverage Utility 2021.05 May 15 2021
+Start time: 21:24:16 on Nov 22,2026
+vcover report -summary merged.ucdb 
+Coverage Report Totals BY INSTANCES: Number of Instances 30
+
+    Enabled Coverage              Bins      Hits    Misses    Weight  Coverage
+    ----------------              ----      ----    ------    ------  --------
+    Assertions                      39        39         0         1   100.00%
+    Branches                       217       217         0         1   100.00%
+    Conditions                      32        32         0         1   100.00%
+    Covergroups                      6        na        na         1   100.00%
+        Coverpoints/Crosses         25        na        na         1        na
+            Covergroup Bins        190       190         0         1   100.00%
+    Directives                      24        24         0         1   100.00%
+    Expressions                     66        66         0         1   100.00%
+    FSM States                       6         6         0         1   100.00%
+    FSM Transitions                 10        10         0         1   100.00%
+    Statements                     312       312         0         1   100.00%
+Total coverage (filtered view): 100.00%
+
+End time: 21:24:17 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+QuestaSim-64 vcover 2021.2_1 Coverage Utility 2021.05 May 15 2021
+Start time: 21:24:17 on Nov 22,2026
+vcover report -instance=/hdl_top/dut -recursive -code bcesf merged.ucdb 
+** Note: (vcover-19063) Please note that '-recursive' option's functionality is changed. For more information, please refer 
+to the reference manual.
+Recursive Coverage Report Summary Data by instance
+
+=================================================================================
+=== Instance: /hdl_top/dut
+=== Design Unit: work.switch_ip_top
+=================================================================================
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                       217       217         0   100.00%
+    Conditions                      32        32         0   100.00%
+    Expressions                     66        66         0   100.00%
+    FSM States                       6         6         0   100.00%
+    FSM Transitions                 10        10         0   100.00%
+    Statements                     312       312         0   100.00%
+
+
+Total Coverage By Instance (filtered view): 100.00%
+
+End time: 21:24:18 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0

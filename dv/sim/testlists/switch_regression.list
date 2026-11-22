@@ -1,0 +1,31 @@
+#***************************************************************
+# Project name                  : Switch IP
+# File Name                     : switch_regression.list
+# Author                        : Vijay Bogati
+# Description                   : Regression list for make regress: <test_name> [seed]
+#***************************************************************
+switch_base_test             1
+switch_reg_hw_reset_test     1
+switch_reg_bit_bash_test     1
+switch_csr_access_test       1
+switch_routing_test          1
+switch_permission_test       1
+switch_route_disable_test    1
+switch_addr_map_test         1
+switch_packet_len_test       1
+switch_pkt_kind_test         1
+switch_pkt_kind_test         5
+switch_arbitration_test      1
+switch_arbitration_test      7
+switch_concurrency_test      1
+switch_backpressure_test     1
+switch_backpressure_test     23
+switch_error_pin_test        1
+switch_dynamic_cfg_test      1
+switch_switch_en_test        1
+switch_reset_test            1
+switch_drop_cnt_sat_test     1
+switch_random_test           1
+switch_random_test           42
+switch_random_test           1234
+switch_random_test           98765
