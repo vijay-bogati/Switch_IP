@@ -17,6 +17,27 @@ Start with the [specification](spec/Switch%20IP%20Specification.pdf), then the
 
 ## 1. Design at a glance
 
+### Switch IP block diagram · 2 sources, 4 destinations, APB CSR
+
+![Switch IP block diagram](spec/images/switch_ip_block_diagram.png)
+
+Each source's header is decoded and checked, the crossbar forwards legal packets, and the CSR block supplies the
+routes and address ranges and drives `error`.
+
+- **Header decode and checks (one per source):** the first beat of each packet is the header. Its 12-bit `dest_id`
+  is compared with the four DESTn_BASE/LIMIT ranges to pick a destination. The packet is then checked for length,
+  source ID, unmapped address, a route the hardware forbids, and a route disabled in ROUTE_CFG. A legal packet is
+  passed to the crossbar with its header unchanged. An illegal one is consumed from the source and dropped, and the
+  first failure is reported to the CSR block.
+- **Crossbar:** connects each source to the destination it selected. dest1 is reachable only from src1 and dest2 only
+  from src2. dest3 and dest4 are shared, so each has a packet-level round-robin arbiter. Once a source wins, it holds
+  the destination until the end of its packet, so packets never interleave.
+- **CSR block (APB slave):** an APB master programs ROUTE_CFG, the DESTn address ranges and MAX_PAYLOAD, which feed the
+  header checks (dashed `config` path). It collects drop reasons into the sticky, maskable ERR_STATUS, keeps the packet
+  and drop counters, and drives the single `error` output.
+- **Destinations:** each port by default owns a 256-byte address range: dest1 `0x000–0x0FF`, dest2 `0x100–0x1FF`,
+  dest3 `0x200–0x2FF`, dest4 `0x300–0x3FF`.
+
 | Area | Implementation |
 |---|---|
 | Ports | 2 sources, 4 destinations; 32-bit data, `valid` / `ready` / `last`; header beat forwarded unchanged with the payload |
