@@ -8,7 +8,7 @@
 `ifndef STREAM_SINK_DRIVER_SV
 `define STREAM_SINK_DRIVER_SV
 
-class stream_sink_driver extends uvm_component;
+class stream_sink_driver extends uvm_driver #(stream_tx);   // ready generator only: seq_item_port unused
   `uvm_component_utils(stream_sink_driver)
 
   stream_agent_config cfg;

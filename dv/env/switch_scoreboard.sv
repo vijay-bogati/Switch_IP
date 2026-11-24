@@ -19,7 +19,7 @@
 //   6. destination packets ending at E are compared
 //   7. the error pin (after E) is compared with |(status & mask)
 //------------------------------------------------------------------
-class switch_scoreboard extends uvm_component;
+class switch_scoreboard extends uvm_scoreboard;
   `uvm_component_utils(switch_scoreboard)
 
   uvm_tlm_analysis_fifo #(apb_master_tx) apb_fifo;
